@@ -1,237 +1,243 @@
-*{
-  font-family: 'Poppins', sans-serif;
-  margin:0; padding:0;
+* {
+  font-family: 'Segoe UI', sans-serif;
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
-  outline: none; border:none;
+  outline: none;
+  border: none;
   text-decoration: none;
   text-transform: capitalize;
   transition: .2s linear;
 }
 
-$carrot-color:#e67e22;
-$black:#130f40;
-$white:#fff;
-$light-color:#666;
-$light-bg:#eee;
-$border:.2rem solid $black;
-$box-shadow:0 .5rem 1.5rem rgba(0,0,0,.1);
+$carrot-color: #e67e22;
+$black: #130f40;
+$white: #fff;
+$light-color: #666;
+$light-bg: #eee;
+$border: .2rem solid $black;
+$box-shadow: 0 .5rem 1.5rem rgba(0, 0, 0, .1);
 
 @mixin grid($val) {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax($val, 1fr));
-  gap:1.5rem;
+  gap: 1.5rem;
 }
 
-@mixin form-btn{
-  width:100%;
+@mixin form-btn {
+  width: 100%;
   text-align: center;
 
-  &:hover{
+  &:hover {
     background: $black;
   }
 }
 
 @mixin white-btn {
-  color:$white;
+  color: $white;
   border-color: $white;
 
-  &:hover{
-    color:$black;
+  &:hover {
+    color: $black;
   }
 
-  &::before{
-    background:$white;
+  &::before {
+    background: $white;
   }
 }
 
-html{
+html {
   font-size: 62.5%;
   overflow-x: hidden;
   scroll-behavior: smooth;
   scroll-padding-top: 4rem;
 
-  &::-webkit-scrollbar{
-    width:1rem;
+  &::-webkit-scrollbar {
+    width: 1rem;
   }
 
-  &::-webkit-scrollbar-track{
-    background:transparent;
+  &::-webkit-scrollbar-track {
+    background: transparent;
   }
 
-  &::-webkit-scrollbar-thumb{
-    background:$carrot-color;
+  &::-webkit-scrollbar-thumb {
+    background: $carrot-color;
     border-radius: 5rem;
   }
 }
 
-section{
-  padding:5rem 9%;
+section {
+  padding: 5rem 9%;
 }
 
-.heading{
+.heading {
   padding-bottom: 2rem;
   text-align: center;
   font-size: 3.5rem;
-  color:$black;
+  color: $black;
 
-  span{
-    color:$carrot-color;
+  span {
+    color: $carrot-color;
   }
 }
 
-.btn{
+.btn {
   display: inline-block;
   margin-top: 1rem;
-  padding:.8rem 2.8rem;
+  padding: .8rem 2.8rem;
   border-radius: 5rem;
   border-top-left-radius: 0;
-  border:$border;
+  border: $border;
   cursor: pointer;
   background: none;
-  color:$black;
+  color: $black;
   font-size: 1.7rem;
   overflow: hidden;
   z-index: 0;
   position: relative;
 
-  &::before{
+  &::before {
     content: '';
     position: absolute;
-    top:0; left:0;
+    top: 0;
+    left: 0;
     height: 100%;
-    width:100%;
+    width: 100%;
     background: $black;
     z-index: -1;
     transition: .2s linear;
     clip-path: circle(0% at 0% 5%);
   }
 
-  &:hover::before{
+  &:hover::before {
     clip-path: circle(100%);
   }
 
-  &:hover{
-    color:$white;
+  &:hover {
+    color: $white;
   }
 }
 
 @keyframes fadeIn {
-  0%{
+  0% {
     transform: translateY(3rem);
     opacity: 0;
   }
 }
 
-.header{
+.header {
   background: $white;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding:2rem 9%;
+  padding: 2rem 9%;
   box-shadow: $box-shadow;
   position: fixed;
-  top:0; left:0; right:0;
+  top: 0;
+  left: 0;
+  right: 0;
   z-index: 1000;
   transform: translateY(-10rem);
 
-  &.active{    
+  &.active {
     transform: translateY(0rem);
   }
 
-  .logo{
+  .logo {
     font-size: 2.5rem;
-    color:$black;
+    color: $black;
     font-weight: bolder;
 
-    i{
-      color:$carrot-color;
+    i {
+      color: $carrot-color;
     }
   }
 
-  .navbar a{
-    margin:0 1rem;
+  .navbar a {
+    margin: 0 1rem;
     font-size: 1.7rem;
-    color:$light-color;
+    color: $light-color;
 
-    &:hover{
-      color:$carrot-color;
+    &:hover {
+      color: $carrot-color;
     }
   }
 
   .icons a,
-  .icons div{
+  .icons div {
     font-size: 2.5rem;
     margin-left: 1.5rem;
-    color:$black;
+    color: $black;
     cursor: pointer;
 
-    &:hover{
-      color:$carrot-color;
+    &:hover {
+      color: $carrot-color;
     }
   }
 
-  .login-form{
+  .login-form {
     position: absolute;
-    top:120%; right:2rem;
-    width:35rem;
+    top: 120%;
+    right: 2rem;
+    width: 35rem;
     border-radius: 1rem;
     background: $white;
     box-shadow: $box-shadow;
-    padding:2rem;
+    padding: 2rem;
     display: none;
 
-    &.active{
+    &.active {
       display: block;
       animation: fadeIn .4s linear;
     }
 
-    h3{
-      color:$black;
+    h3 {
+      color: $black;
       font-size: 2.5rem;
       padding-bottom: .5rem;
     }
 
-    .box{
-      width:100%;
+    .box {
+      width: 100%;
       border-bottom: $border;
       border-width: .1rem;
-      padding:1.5rem 0;
+      padding: 1.5rem 0;
       font-size: 1.6rem;
-      color:$black;
+      color: $black;
       text-transform: none;
-      margin:1rem 0;
+      margin: 1rem 0;
     }
 
-    .remember{
+    .remember {
       display: flex;
       align-items: center;
-      gap:.5rem;
-      padding:1rem 0;
+      gap: .5rem;
+      padding: 1rem 0;
 
-      label{
+      label {
         font-size: 1.5rem;
         cursor: pointer;
-        color:$light-color;
+        color: $light-color;
       }
     }
 
-    .btn{
+    .btn {
       @include form-btn();
-      margin:1.5rem 0;
+      margin: 1.5rem 0;
     }
 
-    .links{
+    .links {
       display: flex;
       justify-content: space-between;
       align-items: center;
       margin-top: 1rem;
 
-      a{
+      a {
         font-size: 1.4rem;
-        color:$carrot-color;
+        color: $carrot-color;
 
-        &:hover{
-          color:$black;
+        &:hover {
+          color: $black;
           text-decoration: underline;
         }
       }
@@ -239,11 +245,11 @@ section{
   }
 }
 
-#menu-btn{
+#menu-btn {
   display: none;
 }
 
-.home{
+.home {
   min-height: 100vh;
   display: flex;
   align-items: center;
@@ -253,347 +259,351 @@ section{
   background-size: cover;
   position: relative;
 
-  .content{
-    width:50rem;
+  .content {
+    width: 50rem;
 
-    h3{
+    h3 {
       font-size: 6rem;
-      color:$white;
+      color: $white;
       padding-bottom: 1rem;
 
-      span{
-        color:$carrot-color;
+      span {
+        color: $carrot-color;
       }
     }
 
-    .btn{
+    .btn {
       @include white-btn();
     }
   }
 
-  .wave{
+  .wave {
     position: absolute;
-    bottom: 0; left:0;
+    bottom: 0;
+    left: 0;
     width: 100%;
     height: 12rem;
   }
 }
 
-.about{
+.about {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-  gap:2rem;
+  gap: 2rem;
 
-  .image{
-    flex:1 1 40rem;
+  .image {
+    flex: 1 1 40rem;
 
-    img{
-      width:100%;
+    img {
+      width: 100%;
     }
   }
 
-  .content{
-    flex:1 1 40rem;
+  .content {
+    flex: 1 1 40rem;
 
-    h3{
-      color:$black;
+    h3 {
+      color: $black;
       font-size: 4rem;
 
-      span{
-        color:$carrot-color;
+      span {
+        color: $carrot-color;
       }
     }
 
-    p{
+    p {
       font-size: 1.6rem;
-      color:$light-color;
-      padding:1rem 0;
+      color: $light-color;
+      padding: 1rem 0;
       line-height: 2;
     }
   }
 }
 
 .dog-food,
-.cat-food{
+.cat-food {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-  padding:2rem 0;
+  padding: 2rem 0;
 
-  .image{
-    flex:1 1 40rem;
+  .image {
+    flex: 1 1 40rem;
 
-    img{
-      width:100%;
+    img {
+      width: 100%;
     }
   }
 
-  .content{
-    flex:1 1 40rem;
+  .content {
+    flex: 1 1 40rem;
     text-align: center;
-    padding:2rem;
+    padding: 2rem;
 
-    h3{
+    h3 {
       font-size: 3.5rem;
-      color:$black;
+      color: $black;
 
-      span{
-        color:$carrot-color;
+      span {
+        color: $carrot-color;
       }
     }
 
-    p{
-      padding:1rem 0;
+    p {
+      padding: 1rem 0;
       line-height: 2;
-      color:$light-color;
+      color: $light-color;
       font-size: 1.6rem;
     }
 
-    .amount{
+    .amount {
       font-size: 3.5rem;
-      color:$black;
-      padding:.5rem 0;
-    }    
+      color: $black;
+      padding: .5rem 0;
+    }
 
-    a{
+    a {
 
-      img{
-        height:15rem;
+      img {
+        height: 15rem;
         margin-top: 1rem;
       }
 
-      &:hover img{
+      &:hover img {
         transform: rotate(15deg);
       }
     }
   }
 }
 
-.cat-food{
+.cat-food {
   flex-wrap: wrap-reverse;
 }
 
-.shop .box-container{
+.shop .box-container {
   @include grid(30rem);
 
-  .box{
+  .box {
     position: relative;
     overflow: hidden;
 
-    &:hover{
+    &:hover {
 
-      .image img{
+      .image img {
         transform: scale(1.1);
       }
 
-      .icons{        
+      .icons {
         transform: translateX(0rem);
       }
     }
 
-    .image{
-      height:45rem;
-      width:100%;
+    .image {
+      height: 45rem;
+      width: 100%;
       overflow: hidden;
 
-      img{
+      img {
         height: 100%;
-        width:100%;
+        width: 100%;
         object-fit: cover;
       }
     }
 
-    .icons{
+    .icons {
       position: absolute;
-      top:1rem; right:2rem;
+      top: 1rem;
+      right: 2rem;
       z-index: 10;
       transform: translateX(10rem);
 
-      a{
+      a {
         display: block;
         width: 5rem;
-        height:5rem;
+        height: 5rem;
         line-height: 5rem;
         font-size: 2.2rem;
         margin-top: 1rem;
         background: $white;
-        color:$black;
+        color: $black;
         text-align: center;
 
-        &:hover{
-          color:$white;
+        &:hover {
+          color: $white;
           background: $carrot-color;
         }
       }
     }
 
-    .content{
-      padding:1rem 0;
+    .content {
+      padding: 1rem 0;
       text-align: center;
 
-      h3{
+      h3 {
         font-size: 2.2rem;
-        color:$black;
+        color: $black;
         padding-bottom: .5rem;
       }
 
-      .amount{
+      .amount {
         font-size: 2rem;
-        color:$carrot-color;
+        color: $carrot-color;
       }
     }
   }
 }
 
-.services .box-container{
+.services .box-container {
   @include grid(30rem);
 
-  .box{
+  .box {
     background: $light-bg;
-    padding:3rem;
+    padding: 3rem;
     text-align: center;
     border-radius: 33% 67% 70% 30% / 30% 30% 70% 70%;
 
-    &:nth-child(even){
+    &:nth-child(even) {
       border-radius: 79% 21% 81% 19% / 58% 93% 7% 42%;
     }
 
-    &:hover{
+    &:hover {
       border-radius: .5rem;
     }
 
-    i{
-      height:6.5rem;
-      width:6.5rem;
-      line-height:6.5rem;
+    i {
+      height: 6.5rem;
+      width: 6.5rem;
+      line-height: 6.5rem;
       font-size: 3rem;
-      color:$white;
+      color: $white;
       background: $carrot-color;
       border-radius: 50%;
       margin-bottom: .5rem;
     }
 
-    h3{
+    h3 {
       font-size: 2.2rem;
-      color:$black;
-      padding:1rem 0;
+      color: $black;
+      padding: 1rem 0;
     }
   }
 }
 
-.plan .box-container{
+.plan .box-container {
   @include grid(30rem);
 
-  .box{
+  .box {
     position: relative;
-    padding:2rem;
+    padding: 2rem;
     border-radius: .5rem;
     position: relative;
     margin-bottom: 2rem;
     background: $light-bg;
 
-    .btn{
+    .btn {
       position: absolute;
-      bottom:-2rem; right:2rem;
+      bottom: -2rem;
+      right: 2rem;
       background: $white;
     }
 
-    .title{
+    .title {
       text-align: center;
-      color:$carrot-color;
+      color: $carrot-color;
       font-size: 2rem;
     }
 
-    .day{
+    .day {
       text-align: center;
-      color:$black;
+      color: $black;
       font-size: 3.5rem;
     }
 
-    .icon{
-      color:$carrot-color;
+    .icon {
+      color: $carrot-color;
       font-size: 5rem;
-      padding:2rem 0;
+      padding: 2rem 0;
     }
 
-    .list{
-      margin:1rem 0;
+    .list {
+      margin: 1rem 0;
 
-      p{
+      p {
         display: flex;
         align-items: center;
         justify-content: space-between;
         font-size: 1.4rem;
-        color:$light-color;
-        padding:1rem 0;
+        color: $light-color;
+        padding: 1rem 0;
 
-        span{
-          color:$carrot-color;
+        span {
+          color: $carrot-color;
         }
       }
     }
 
-    .amount{
+    .amount {
       font-size: 5rem;
       font-weight: bolder;
-      color:$black;
+      color: $black;
 
-      span{
+      span {
         font-size: 3rem;
       }
     }
   }
 }
 
-.contact{
-  padding:2rem 0;
+.contact {
+  padding: 2rem 0;
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-  gap:3rem;
+  gap: 3rem;
 
-  .image{
-    flex:1 1 40rem;
+  .image {
+    flex: 1 1 40rem;
 
-    img{
+    img {
       width: 100%;
     }
   }
 
-  form{
+  form {
     flex: 1 1 40rem;
-    padding:2rem 7%;
+    padding: 2rem 7%;
 
-    .btn{
+    .btn {
       @include form-btn();
     }
 
-    h3{
+    h3 {
       font-size: 3rem;
       padding-bottom: 1rem;
-      color:$black;
+      color: $black;
     }
 
-    .box, textarea{
+    .box,
+    textarea {
       width: 100%;
       border-bottom: $border;
       border-width: .1rem;
       font-size: 1.6rem;
       text-transform: none;
-      color:$black;
-      padding:1.5rem 0;
-      margin:1rem 0;
+      color: $black;
+      padding: 1.5rem 0;
+      margin: 1rem 0;
     }
 
-    textarea{
-      height:15rem;
+    textarea {
+      height: 15rem;
       resize: none;
     }
   }
 }
 
-.footer{
+.footer {
   position: relative;
   background: url(../image/footer_background.jpg) no-repeat;
   background-position: center;
@@ -601,114 +611,95 @@ section{
   padding-top: 10rem;
   padding-bottom: 2rem;
 
-  img{
+  img {
     position: absolute;
-    top:0; left:0;
-    height:10rem;
-    width:100%;
+    top: 0;
+    left: 0;
+    height: 10rem;
+    width: 100%;
   }
 
-  .share{
+  .share {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    gap:1.5rem;
+    gap: 1.5rem;
 
-    a{
+    a {
       @include white-btn();
 
-      i{
+      i {
         padding-right: .5rem;
       }
     }
   }
 
-  .credit{
+  .credit {
     text-align: center;
-    color:$white;
+    color: $white;
     font-size: 2rem;
-    padding:2rem 1rem;
+    padding: 2rem 1rem;
     margin-top: 2.5rem;
 
-    span{
-      color:$carrot-color;
+    span {
+      color: $carrot-color;
     }
   }
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// media queries 
-
 @media (max-width:991px) {
-  
-  html{
+
+  html {
     font-size: 55%;
   }
 
-  .header{
-    padding:2rem;
+  .header {
+    padding: 2rem;
   }
 
-  section{
-    padding:5rem 2rem;
-  }  
+  section {
+    padding: 5rem 2rem;
+  }
 
-  .home{
+  .home {
     justify-content: center;
     background-position: right;
 
-    .content{
+    .content {
       text-align: center;
       padding-bottom: 5rem;
 
-      h3{
+      h3 {
         font-size: 4.5rem;
       }
     }
   }
-  
+
 }
 
-@media (max-width:768px){
+@media (max-width:768px) {
 
-  #menu-btn{
+  #menu-btn {
     display: inline-block;
   }
 
-  .header{
+  .header {
 
-    .navbar{
+    .navbar {
       position: absolute;
-      top:99%; left:0; right:0;
+      top: 99%;
+      left: 0;
+      right: 0;
       background: $white;
       clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
 
-      &.active{
+      &.active {
         clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
       }
 
-      a{
+      a {
         display: block;
-        margin:2rem;
+        margin: 2rem;
         font-size: 2rem;
       }
     }
@@ -716,14 +707,14 @@ section{
 
 }
 
-@media (max-width:450px){
-  
-  html{
+@media (max-width:450px) {
+
+  html {
     font-size: 50%;
   }
-  
-  .header .login-form{
-    width:90%;
+
+  .header .login-form {
+    width: 90%;
   }
 
 }
